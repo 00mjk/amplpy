@@ -5,7 +5,7 @@ jobs:
     - task: UsePythonVersion@0
     - bash: |
         python3 -m pip install --upgrade pip
-        python3 -m pip install cibuildwheel==1.1.0
+        python3 -m pip install cibuildwheel==1.5.1
         python3 updatelib.py
         cibuildwheel --platform linux --output-dir wheelhouse .
         python3 -m pip install twine
@@ -13,12 +13,12 @@ jobs:
     - task: PublishBuildArtifacts@1
       inputs: {pathtoPublish: 'wheelhouse'}
 - job: macos
-  pool: {vmImage: 'macOS-10.13'}
+  pool: {vmImage: 'macOS-10.15'}
   steps:
     - task: UsePythonVersion@0
     - bash: |
         python3 -m pip install --upgrade pip
-        python3 -m pip install cibuildwheel==1.1.0
+        python3 -m pip install cibuildwheel==1.5.1
         python3 updatelib.py
         cibuildwheel --platform macos --output-dir wheelhouse .
         python3 -m pip install twine
@@ -33,7 +33,7 @@ jobs:
       displayName: Install Visual C++ for Python 2.7
     - bash: |
         python -m pip install --upgrade pip
-        python -m pip install cibuildwheel==1.1.0
+        python -m pip install cibuildwheel==1.5.1
         python updatelib.py
         cibuildwheel --platform windows --output-dir wheelhouse .
         python -m pip install twine
