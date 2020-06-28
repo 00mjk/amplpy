@@ -4,8 +4,8 @@ jobs:
   strategy:
     matrix:
       x86:
-        CIBW_MANYLINUX_X86_64_IMAGE: manylinux1
-        CIBW_MANYLINUX_I686_IMAGE: manylinux1
+        CIBW_MANYLINUX_X86_64_IMAGE: manylinux2010
+        CIBW_MANYLINUX_I686_IMAGE: manylinux2010
         CIBW_SKIP: pp*
       ppc64le:
         CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
