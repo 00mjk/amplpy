@@ -12,6 +12,11 @@ jobs:
         CIBW_MANYLINUX_I686_IMAGE: manylinux2014
         CIBW_SKIP: cp27-manylinux*
         CIBW_BUILD: pp*
+  env:
+    CIBW_MANYLINUX_X86_64_IMAGE: $(CIBW_MANYLINUX_X86_64_IMAGE)
+    CIBW_MANYLINUX_I686_IMAGE: $(CIBW_MANYLINUX_I686_IMAGE)
+    CIBW_SKIP: $(CIBW_SKIP)
+    CIBW_BUILD: $(CIBW_BUILD)
   steps:
     - task: UsePythonVersion@0
     - bash: |
