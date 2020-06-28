@@ -6,19 +6,16 @@ jobs:
       x86:
         CIBW_MANYLINUX_X86_64_IMAGE: manylinux2010
         CIBW_MANYLINUX_I686_IMAGE: manylinux2010
-        CIBW_SKIP: pp*
       ppc64le:
         CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
         CIBW_MANYLINUX_I686_IMAGE: manylinux2014
         CIBW_SKIP: cp27-manylinux*
-        CIBW_BUILD: pp*
   steps:
     - task: UsePythonVersion@0
     - bash: |
         export CIBW_MANYLINUX_X86_64_IMAGE=$(CIBW_MANYLINUX_X86_64_IMAGE)
         export CIBW_MANYLINUX_I686_IMAGE=$(CIBW_MANYLINUX_I686_IMAGE)
         export CIBW_SKIP=$(CIBW_SKIP)
-        export CIBW_BUILD=$(CIBW_BUILD)
         python3 -m pip install --upgrade pip
         python3 -m pip install cibuildwheel==1.5.1
         python3 updatelib.py
